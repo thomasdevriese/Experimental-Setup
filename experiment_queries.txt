@@ -1,0 +1,15 @@
+SELECT ?name WHERE { ?person snvoc:firstName ?name . }
+SELECT ?person WHERE { ?person snvoc:firstName "Tom" . }
+SELECT ?person WHERE { ?person snvoc:browserUsed "Firefox" . }
+SELECT ?person WHERE { ?person snvoc:speaks "fr" . }
+SELECT ?person WHERE { ?person snvoc:firstName "Tom" . ?person snvoc:gender "male" . }
+SELECT ?person WHERE { ?person snvoc:speaks "nl" . ?person snvoc:gender "female" . }
+SELECT ?person WHERE { ?person snvoc:speaks "nl" . ?person snvoc:browserUsed "Internet Explorer" . }
+SELECT ?name WHERE { ?person snvoc:id "4398046512167"^^<http://www.w3.org/2001/XMLSchema#long> . ?person snvoc:firstName ?name . }
+SELECT ?friend WHERE { ?person snvoc:id "4398046512167"^^<http://www.w3.org/2001/XMLSchema#long> . ?person snvoc:knows ?friend . }
+SELECT ?friend WHERE { ?person snvoc:firstName "Tom" . ?person snvoc:knows ?friend . }
+SELECT ?person WHERE { ?person snvoc:firstName "Tom" . ?person snvoc:gender "male" . ?person snvoc:speaks "en" . }
+SELECT ?person WHERE { ?person snvoc:speaks "nl" . ?person snvoc:hasInterest <http://localhost:3000/www.ldbc.eu/ldbc_socialnet/1.0/tag/J._R._R._Tolkien> . }
+SELECT ?city WHERE { ?person snvoc:id "4398046512167"^^<http://www.w3.org/2001/XMLSchema#long> . ?person snvoc:isLocatedIn ?place . ?place foaf:name ?city . }
+SELECT ?city WHERE { ?person snvoc:firstName "Tom" . ?person snvoc:isLocatedIn ?place . ?place foaf:name ?city . }
+SELECT ?name WHERE { ?place foaf:name "Brussels" . ?person snvoc:isLocatedIn ?place . ?person snvoc:firstName ?name . }
