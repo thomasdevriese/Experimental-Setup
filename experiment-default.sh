@@ -27,7 +27,7 @@ while read -u 3; do
         echo -e "|\t|\t|\tIteration $i\n|\t|\t|" | tee -a results_temp.txt
 
         # Execute process in background, that way the timeout process including its child process can be interrupted using a trap
-        timeout -s 1 5m bash -c "node experiment $amount$suffix $probability '$query' 2>&1 | tee -a results_temp.txt | tr -dc '0-9.\n' | tr '\n' ',' | sed 's/,,$//' >> results_temp.csv; echo >> results_temp.csv" &
+        timeout -s 1 5m bash -c "node experiment-default.js $amount$suffix $probability '$query' 2>&1 | tee -a results_temp.txt | tr -dc '0-9.\n' | tr '\n' ',' | sed 's/,,$//' >> results_temp.csv; echo >> results_temp.csv" &
         pid=$!
         wait $pid
 
